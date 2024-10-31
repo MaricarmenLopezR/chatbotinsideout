@@ -8,5 +8,6 @@ RUN pip install -r requirements.txt
 
 EXPOSE 5005
 
-# Cambiamos el comando para usar shell form en lugar de exec form
-CMD rasa run --port 5005 --enable-api --cors "*" --host "0.0.0.0"
+# Usando shell script para ejecutar el comando
+SHELL ["/bin/bash", "-c"]
+CMD rasa run --port $PORT --enable-api --cors "*" --host "0.0.0.0"
