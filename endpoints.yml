@@ -42,8 +42,10 @@
 #  queue: queue
 
 action_endpoint:
-  url: "http://localhost:5055/webhook"  # Si usas acciones personalizadas
+  url: "http://localhost:5055/webhook"
 
 rest:
   cors_origins:
     - "*"
+  host: "0.0.0.0"
+  port: 5005

@@ -3,16 +3,18 @@ FROM python:3.9.12-slim
 WORKDIR /app
 COPY . .
 
-# Crear y activar entorno virtual
-RUN python -m venv /opt/venv
-ENV PATH="/opt/venv/bin:$PATH"
-
-# Actualizar pip e instalar dependencias
-RUN pip install --no-cache-dir -U pip setuptools wheel
+# Instalar dependencias
+RUN pip install --no-cache-dir --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Exponer el puerto
+# Entrenar el modelo (opcional, si no tienes el modelo ya entrenado)
+# RUN rasa train
+
 EXPOSE 5005
 
-# Comando para ejecutar Rasa
-CMD ["rasa", "run", "--enable-api", "--cors", "*", "--host", "0.0.0.0", "--port", "5005"]
+# Establecer variables de entorno
+ENV PORT=5005
+
+# Ejecutar Rasa
+ENTRYPOINT ["rasa"]
+CMD ["run", "--enable-api", "--cors", "*", "--host", "0.0.0.0", "--port", "5005"]
