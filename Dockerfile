@@ -9,4 +9,4 @@ RUN pip install -r requirements.txt
 EXPOSE 5005
 
 # Usando el comando sin comillas simples en el host
-CMD ["rasa", "run", "--enable-api", "--cors", "*", "--host", "0.0.0.0", "--port", "$PORT"]
+CMD rasa run --enable-api --cors "*" --port $PORT
