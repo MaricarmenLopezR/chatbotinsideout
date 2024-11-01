@@ -42,7 +42,7 @@
 #  queue: queue
 
 action_endpoint:
-  url: "http://localhost:5055/webhook"
+  url: "https://chatbotinsideout-w0x3.onrender.com/webhook"
 
 rest:
   # La URL se configurará automáticamente
