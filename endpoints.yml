@@ -44,5 +44,4 @@
 action_endpoint:
   url: "https://chatbotinsideout-w0x3.onrender.com/webhook"
 
-rest:
-  # La URL se configurará automáticamente
+rest: {}
