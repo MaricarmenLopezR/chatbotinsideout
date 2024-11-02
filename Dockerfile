@@ -6,8 +6,7 @@ COPY . .
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-ENV PORT=5005
-EXPOSE ${PORT}
+EXPOSE 5005
 
-# Comando simplificado
-CMD ["rasa", "run", "--enable-api", "--port", "${PORT}"]
+# Comando corregido usando $PORT en lugar de ${PORT}
+CMD rasa run --enable-api --port $PORT
