@@ -6,7 +6,14 @@ COPY . .
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-EXPOSE 5005
+# Asegurarnos de que el puerto se maneje correctamente
+ENV PORT=5005
 
-# Usando el comando sin comillas simples en el host
-CMD rasa run --enable-api --cors "*" --port $PORT
+EXPOSE ${PORT}
+
+# Comando modificado para usar la variable de entorno y escuchar en todas las interfaces
+CMD rasa run \
+    --enable-api \
+    --cors "*" \
+    --host 0.0.0.0 \
+    --port ${PORT}
